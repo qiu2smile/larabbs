@@ -6,22 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class SeedCategoriesData extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
-    {
-        //
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
     {
         $categories = [
             [
@@ -43,5 +28,10 @@ class SeedCategoriesData extends Migration
         ];
 
         DB::table('categories')->insert($categories);
+    }
+
+    public function down()
+    {
+        DB::table('categories')->truncate();
     }
 }
