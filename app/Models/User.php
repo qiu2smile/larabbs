@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-namespace App\Models;
-
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -30,4 +28,16 @@ class User extends Authenticatable implements MustVerifyEmailContract
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    /**
+     * 在用户模型中新增与话题模型的关联
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function topics(){
+
+        return $this->hasMany(Topic::class);
+
+    }
+
 }
